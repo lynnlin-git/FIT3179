@@ -7,7 +7,7 @@
     "url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/ne_110m.json",
     "format": {
           "type": "topojson",
-          "feature": "ne_110m"
+          "feature": "ne_110m_admin_0_countries"
         }
   },
   "transform": [{
@@ -16,7 +16,7 @@
         "data": {
           "url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/world_happiness_2019.csv"
         },
-        "key": "Country",
+        "key": "Country or region",
         "fields": ["Score"]
       }
     },
