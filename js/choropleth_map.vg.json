@@ -14,7 +14,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/world_happiness_2019.csv"
+          "url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/wh_2019.csv"
         },
         "key": "Country or region",
         "fields": ["Score"]
