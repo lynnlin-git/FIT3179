@@ -6,16 +6,25 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
   <!-- Import vega-embed -->
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
   
 </head>
 <body>
-  <h1>World Happiness Map</h1>
+  <!-- <h1>World Happiness Map</h1> -->
+  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+      <span class="w3-jumbo w3-hide-small w3-wider">WORLD HAPPINESS 2019</span><br>
+    </div>
+  </header>
+    
   
 <div id="choropleth_map"></div>
-
+<div class="w3-container w3-black" style="padding:128px 16px" id="choropleth_wh">
+  <h3 class="w3-center">World Happiness</h3>
+  </div>
 <script type="text/javascript">
 
   var spec2 = "js/choropleth_map.vg.json";
