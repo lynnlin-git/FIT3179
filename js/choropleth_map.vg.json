@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "title": "World Happiness (2019)",
   "width": 800,
   "height": 600,
   "data": {
@@ -20,7 +20,7 @@
         "fields": ["Score"]
       }
     },
-    {"calculate": "datum.Score + 0.1", "as": "World Happiness"}
+    {"calculate": "datum.Score", "as": "World Happiness"}
   ],
   "projection": {
     "type": "equirectangular"
