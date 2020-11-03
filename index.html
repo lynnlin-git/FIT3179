@@ -53,6 +53,10 @@
   vegaEmbed('#choropleth_map', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+  
+  var spec3 = "js/hap_vs_gdp.vg.json";
+  vegaEmbed('#hap_vs_gdp', spec3).then(function(result) {
+  }).catch(console.error);
 </script>
 
 </body>
