@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Happiness vs GDP Per Capita",
+  "data": {"url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/2019.csv"},
+  "transform": [{
+    "filter": {"and": [
+      {"field": "GDP per capita", "valid": true},
+      {"field": "Score", "valid": true}
+    ]}
+  }],
+  "mark": "rect",
+  "width": 300,
+  "height": 200,
+  "encoding": {
+    "x": {
+      "bin": {"maxbins":20},
+      "field": "GDP per capita",
+      "type": "quantitative"
+    },
+    "y": {
+      "bin": {"maxbins": 15},
+      "field": "Score",
+      "type": "quantitative"
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}
