@@ -1,14 +1,66 @@
   
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-   "width": 500,
+   "width": 600,
   "height": 400,
   "title": "World Happiness Ranking",
   "data": {"url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/happy_lifeExpect.csv"},
- "transform": [
+
+"params": [{
+   "name": "Population_Above",
+   "value": 0,
+   "bind": {
+      "input": "range",
+      "min": 0,
+      "max": 1000000000,
+      "step": 1000000,
+      "name": "Minimum Population: "
+      }
+  
+   },
+   {
+   "name": "region_selection",
+   "bind": {
+   "input": "select",
+   "options": [
+      null,
+      "Australia and New Zealand",
+      "Central and Eastern Europe",
+      "Eastern Asia",
+      "Latin America and Caribbean",
+      "Middle East and Northern Africa",
+      "North America",
+      "Southeastern Asia",
+      "Southern Asia",
+      "Sub-Saharan Africa",
+      "Western Europe"
+      ],
+   "labels":[
+      "Show All",
+      "Australia and New Zealand",
+      "Central and Eastern Europe",
+      "Eastern Asia",
+      "Latin America and Caribbean",
+      "Middle East and Northern Africa",
+      "North America",
+      "Southeastern Asia",
+      "Southern Asia",
+      "Sub-Saharan Africa",
+      "Western Europe"
+      ],
+   "name": "Region Selection: "
+      }
+   }
+ ],
+
+"transform": [
     {"filter": "datum.HealthyLifeExpectancy > 0"},
-    {"filter": "datum.Score > 0"}
+    {"filter": "datum.Score > 0"},
+    {"filter": "region_selection == null || datum.Region == region_selection"},
+    {"filter": "datum.Population > Population_Above"}
+
     ],
+
  "selection": {
     "region_highlight": {
     "type": "multi",
@@ -18,48 +70,48 @@
  },
  "mark": "circle",
  "encoding": {
- "x": {
- "field": "HealthyLifeExpectancy",
- "type": "quantitative",
- "title": "Healthy Life Expectancy",
- "axis": {"tickCount": 7},
- "scale": {"type": "linear", "domain": [0.1, 1.2]}
- },
- "y": {
- "field": "Score",
- "type": "quantitative",
- "axis": {"tickCount": 6},
- "scale": {"type": "linear", "domain": [1, 8]}
- },
+   "x": {
+      "field": "HealthyLifeExpectancy",
+      "type": "quantitative",
+      "title": "Healthy Life Expectancy",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "linear", "domain": [0.1, 1.2]}
+   },
+   "y": {
+      "field": "Score",
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "linear", "domain": [1, 8]}
+   },
  "color": {
- "field": "Region",
- "type": "nominal",
- "scale": {
- "domain": [
-    "Australia and New Zealand",
-    "Central and Eastern Europe",
-    "Eastern Asia",
-    "Latin America and Caribbean",
-    "Middle East and Northern Africa",
-    "North America",
-    "Southeastern Asia",
-    "Southern Asia",
-    "Sub-Saharan Africa",
-    "Western Europe"
- ],
- "range": [
-    "#941a1c",
-    "#984ea3",
-    "#ff7f00",
-    "#787787",
-    "#0000ff",
-    "#a65628",
-    "#af2349",
-    "#cdcd12",
-    "#ef3400",
-    "#234234"
- ]
- }
+      "field": "Region",
+      "type": "nominal",
+      "scale": {
+         "domain": [
+            "Australia and New Zealand",
+            "Central and Eastern Europe",
+            "Eastern Asia",
+            "Latin America and Caribbean",
+            "Middle East and Northern Africa",
+            "North America",
+            "Southeastern Asia",
+            "Southern Asia",
+            "Sub-Saharan Africa",
+            "Western Europe"
+            ],
+         "range": [
+            "#941a1c",
+            "#984ea3",
+            "#ff7f00",
+            "#787787",
+            "#0000ff",
+            "#a65628",
+            "#af2349",
+            "#cdcd12",
+            "#ef3400",
+            "#234234"
+            ]
+      }
  },
  "opacity": {
     "condition": {"selection": "region_highlight", "value": 0.6},
@@ -75,7 +127,7 @@
  },
  "legend": {"format": ".1s"}
  },
-  "tooltip": [
+ "tooltip": [
       {"field": "Country or region", "type": "nominal", "title": "Country"},
       {"field": "Region", "type": "nominal"},
       {"field": "Score", "type": "quantitative", "title": "World Happiness Score"},
