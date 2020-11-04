@@ -23,8 +23,38 @@
     <h1>WORLD HAPPINESS 2019</h1>
     <p>Placeholder text</p>
     
-    <div id="choropleth_map"></div>
-    <div id="hap_vs_gdp"></div>
+    <div>
+      <h2>World Happiness 2019</h2>
+      <div id="choropleth_map"></div>
+    </div>
+    
+    <div>
+      <h2>Happiness vs GDP</h2>    
+      <div id="hap_vs_gdp"></div>
+    </div>
+    
+    <div>
+      <h2>Happiness histogram</h2>
+      <div id="hap_hist"></div>
+    </div>
+    
+    <div>
+      <h2>Happiness vs Life Expectancy</h2>
+      <div id="hap_vs_health"</div>
+    </div>
+    
+    <div>
+      <h2>Regional Happiness Ranking</h2>
+      <div id="reg_hap_rank"></div>
+    </div>
+    
+    <div>
+      <h2>World Region</h2>
+      <div id="world_region"></div>
+    </div>
+    
+    
+    
   </div>
 </div>
 <!-- end pure grid group -->
@@ -40,6 +70,24 @@
   var spec3 = "js/hap_vs_gdp.vg.json";
   vegaEmbed('#hap_vs_gdp', spec3).then(function(result) {
   }).catch(console.error);
+  
+  var spec3 = "js/hap_hist.vg.json";
+  vegaEmbed('#hap_hist', spec3).then(function(result) {
+  }).catch(console.error);
+  
+  var spec3 = "js/hap_vs_health.vg.json";
+  vegaEmbed('#hap_vs_health', spec3).then(function(result) {
+  }).catch(console.error);
+  
+  var spec3 = "js/reg_hap_rank.vg.json";
+  vegaEmbed('#reg_hap_rank', spec3).then(function(result) {
+  }).catch(console.error);
+
+  var spec3 = "js/world_region.vg.json";
+  vegaEmbed('#world_region', spec3).then(function(result) {
+  }).catch(console.error);
+  
+  
 </script>
 
 </body>
