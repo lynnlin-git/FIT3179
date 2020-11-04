@@ -1,4 +1,3 @@
-  
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
    "width": 600,
@@ -12,7 +11,7 @@
    "bind": {
       "input": "range",
       "min": 0,
-      "max": 1000000000,
+      "max": 350000000,
       "step": 1000000,
       "name": "Minimum Population: "
       }
@@ -137,6 +136,3 @@
  ]
  }
 }
-
-
-
