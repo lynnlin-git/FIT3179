@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "World Happiness Ranking",
   "data": {
     "url": "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/data/2019.csv"
   },
