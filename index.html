@@ -1,94 +1,220 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-  <!-- Import vega-embed -->
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <!-- Import pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <!-- Import w3schools.css -->  
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-  
-  <style>
-  </style>
-  
-</head>
-<body>
-  <div>
-    <h1>WORLD HAPPINESS 2019</h1>
-    <p>Placeholder text</p>
-    
-    <div>
-      <h2>World Happiness 2019</h2>
-      <div id="choropleth_map"></div>
-    </div>
-    
-    <div>
-      <h2>Happiness vs GDP</h2>    
-      <div id="hap_vs_gdp"></div>
-    </div>
-    
-    <div>
-      <h2>Happiness histogram</h2>
-      <div id="hap_hist"></div>
-    </div>
-    
-    <div>
-      <h2>Happiness vs Life Expectancy</h2>
-      <div id="hap_vs_health"</div>
-    </div>
-    
-    <div>
-      <h2>Regional Happiness Ranking</h2>
-      <div id="reg_hap_rank"></div>
-    </div>
-    
-    <div>
-      <h2>World Region</h2>
-      <div id="world_region"></div>
-    </div>
-    
-    
-    
-  </div>
-</div>
-<!-- end pure grid group -->
+<title>World Happiness Visualisation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<!-- Import vega-embed -->
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
 
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>World Happiness (2019)</b></h1>
+  <span>The world happiness levels are measured based off a series of life evaluation questions such as economic production, social support, 
+	  life expectancy, social support, freedom, level of perceived corruption as well as generosity. This data is from Sustainable Development Solutions Network's 2019 <a href="https://www.kaggle.com/unsdsn/world-happiness?select=2019.csv">World Happiness Report</a>. 
+	  This data entails the records of over 7.6 billion people, which was then normalised to form this dataset.
+ </span>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Visualisations post -->
+<div class="w3-col l8 s12">
+  <!-- Choropleth map-->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>World Happiness Levels</b></h3>
+	  <div id="choropleth_map"></div>
+
+      <h5><b>Happiness Levels Ranked</b></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>A score of 10 represents the ideal life, and a score of 0, the worst possible life.
+	  <br><br>
+	  Hover over each country for more details.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
   
+    <!-- Happiness vs. GDP -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>Happiness vs Gross Domestic Produce</b></h3>
+	  <div id="hap_vs_gdp"></div>
+      <h5>The Impact of GDP on Happiness</h5>
+    </div>
+
+    <div class="w3-container">
+      <p>In general, there is a clear trend of increasing GDP per capita increases happiness. </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Happiness vs Life Expectancy -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>Happiness vs Life Expectancy</b></h3>
+		<div id="hap_vs_health"></div>
+	  	  
+      <h5><b><br>The Impact of Life Expectancy on Happiness</b></h5>
+    </div>
+    <div class="w3-container">
+      <p>Leading a longer life is often tied to stronger happiness, however, just how strong a factor does this play? 
+	  <p>This visualisation shows that the happier countries do live a longer life. It also shows that generally each region's happiness is grouped closer together and a region's life expectancy seems to be similar between countries within.</p>
+      <p>Use the population slider to filter the populations and click on a region in the legend or use the region selector to view a region.</p>
+	  <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
   
+    <!-- World Regions -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>World Regions</b></h3>
+		<div id="world_region"></div>
+	  	  
+      <h5><b><br>Where the Regions Are</b></h5>
+    </div>
+    <div class="w3-container">
+      <p>Hover over for more details.</p>
+	  <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- World Regional Happiness-->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>World Regional Happiness Ranked</b></h3>
+		<div id="reg_hap_rank"></div>
+	  	  
+      <h5><b><br>Ranking Happiness on Region</b></h5>
+    </div>
+    <div class="w3-container">
+      <p>Each region </p>
+	  <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Histogram: happiness score -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+    <div class="w3-container w3-white">
+      <h3><b>Most Common Happiness Score</b></h3>
+	  <div id="hap_hist"></div>
+      <p>Through this visualisation, we can actually see that the most common happiness score is 6.</p>
+    </div>
+  </div>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Top 4 Happiest Countries </h4>
+    </div>
+    <ol class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <span class="w3-large"><b>1.</b> Finland</span><br>
+		<p>Happiness Score: <span class="w3-opacity"><b>7.769</b></span></p>
+      </li>
+      <li class="w3-padding-16">
+        <span class="w3-large"><b>2.</b> Denmark</span><br>
+		<p>Happiness Score: <span class="w3-opacity"><b>7.6</b></span></p>
+      </li> 
+      <li class="w3-padding-16">
+        <span class="w3-large"><b>3.</b> Norway</span><br>
+		<p>Happiness Score: <span class="w3-opacity"><b>7.554</b></span></p>
+      </li>   
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <span class="w3-large"><b>4.</b> Iceland</span><br>
+		<p>Happiness Score: <span class="w3-opacity"><b>7.494</b></span></p>
+      </li>  
+    </ol>
+  </div>
+
+ 
+
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
 <script>
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
+  var spec2 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/choropleth_map.vg.json";
+  vegaEmbed('#choropleth_map', spec2, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
-  var spec3 = "js/hap_vs_gdp.vg.json";
-  vegaEmbed('#hap_vs_gdp', spec3).then(function(result) {
+  var spec3 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/hap_vs_gdp.vg.json";
+  vegaEmbed('#hap_vs_gdp', spec3, {"actions": false}).then(function(result) {
   }).catch(console.error);
   
-  var spec3 = "js/hap_hist.vg.json";
-  vegaEmbed('#hap_hist', spec3).then(function(result) {
+  var spec4 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/hap_hist.vg.json";
+  vegaEmbed('#hap_hist', spec4, {"actions": false}).then(function(result) {
   }).catch(console.error);
   
-  var spec3 = "js/hap_vs_health.vg.json";
-  vegaEmbed('#hap_vs_health', spec3).then(function(result) {
+  var spec3 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/hap_vs_health.vg.json";
+  vegaEmbed('#hap_vs_health', spec3, {"actions": false}).then(function(result) {
   }).catch(console.error);
   
-  var spec3 = "js/reg_hap_rank.vg.json";
-  vegaEmbed('#reg_hap_rank', spec3).then(function(result) {
+  var spec3 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/reg_hap_rank.vg.json";
+  vegaEmbed('#reg_hap_rank', spec3, {"actions": false}).then(function(result) {
   }).catch(console.error);
 
-  var spec3 = "js/world_region.vg.json";
-  vegaEmbed('#world_region', spec3).then(function(result) {
+  var spec3 = "https://raw.githubusercontent.com/lynnlin-git/FIT3179/main/js/world_region.vg.json";
+  vegaEmbed('#world_region', spec3, {"actions": false}).then(function(result) {
   }).catch(console.error);
   
   
 </script>
 
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <p>A visualisation by Lynn Lin.</P>
+  <p> Data from: <a href="https://www.kaggle.com/unsdsn/world-happiness?select=2019.csv">World Happiness Report</a>, Sustainable Development Solutions Network</p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
 </body>
+
+
 </html>
