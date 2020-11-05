@@ -73,13 +73,13 @@
       "field": "HealthyLifeExpectancy",
       "type": "quantitative",
       "title": "Healthy Life Expectancy",
-      "axis": {"tickCount": 7},
+      "axis": {"tickCount": 7, "grid": false},
       "scale": {"type": "linear", "domain": [0.1, 1.2]}
    },
    "y": {
       "field": "Score",
       "type": "quantitative",
-      "axis": {"tickCount": 6},
+      "axis": {"tickCount": 6, "grid": false},
       "scale": {"type": "linear", "domain": [1, 8]}
    },
  "color": {
