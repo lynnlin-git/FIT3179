@@ -16,8 +16,6 @@
       "field": "Score",
       "title": "Average Happiness Score",
        "axis": {"grid": false}
-    },
-    
-   "color": {"value": "#c3d4a9"}
+    }
   }
 }
