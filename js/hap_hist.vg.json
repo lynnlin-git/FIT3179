@@ -6,7 +6,6 @@
   "mark": "bar",
   "encoding": {
     "x": {"bin": true, "field": "Score", "title":"Score"},
-    "y": {"aggregate": "count"},
-    "color": {"value": "#a39b87"}
+    "y": {"aggregate": "count"}
   }
 }
